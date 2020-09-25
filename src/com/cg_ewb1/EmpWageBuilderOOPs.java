@@ -1,19 +1,20 @@
 package com.cg_ewb1;
 
 public class EmpWageBuilderOOPs {
-
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
 	public static final int EMP_RATE_PER_HOUR = 20;
 	public static final int NUM_OF_WORKING_DAYS = 2;
+	public static final int MAX_HRS_IN_MONTH = 10;
 
 	public static void main(String[] args) {
 
 		int empHrs = 0;
-		int empWage = 0;
-		int totalEmpWages = 0;
-		int day = 0;
-		while (day != NUM_OF_WORKING_DAYS) {
+		int totalWorkingDays = 0;
+		int totalEmpHrs = 0;
+
+		while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
+			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch (empCheck) {
 			case IS_PART_TIME:
@@ -27,12 +28,13 @@ public class EmpWageBuilderOOPs {
 			default:
 				empHrs = 0;
 			}
-			empWage = empHrs * EMP_RATE_PER_HOUR;
-			totalEmpWages += empWage;
-			System.out.println("Emp Wage: " + empWage);
-			day++;
+			totalEmpHrs += empHrs;
+
+			System.out.println("Day#: " + totalWorkingDays + " Emo Hr: " + empHrs);
+
 		}
-		System.out.println("Total Emp Wages: " + totalEmpWages);
+		int totalEmpWage = totalEmpHrs + EMP_RATE_PER_HOUR;
+		System.out.println("Total Emp Wages: " + totalEmpWage);
 
 	}
 }
