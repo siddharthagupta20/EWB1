@@ -7,7 +7,7 @@ public class EmpWageBuilderOOPs {
 	public static final int NUM_OF_WORKING_DAYS = 2;
 	public static final int MAX_HRS_IN_MONTH = 10;
 
-	public static void main(String[] args) {
+	public static int calEmpWages() {
 
 		int empHrs = 0;
 		int totalWorkingDays = 0;
@@ -34,7 +34,11 @@ public class EmpWageBuilderOOPs {
 
 		}
 		int totalEmpWage = totalEmpHrs + EMP_RATE_PER_HOUR;
-		System.out.println("Total Emp Wages: " + totalEmpWage);
+		return totalEmpWage;
 
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Total Emp Wages: " + calEmpWages());
 	}
 }
