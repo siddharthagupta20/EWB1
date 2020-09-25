@@ -4,7 +4,21 @@ public class EmpWageBuilderOOPs {
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
 
-	public static int calEmpWages(String compName, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
+	private final String comp;
+	private final int empRatePerHour;
+	private final int numOfWorkingDays;
+	private final int maxHoursPerMonth;
+	private int totalEmpWage;
+
+	public EmpWageBuilderOOPs(String compName, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
+		this.comp = compName;
+		this.empRatePerHour = empRatePerHour;
+		this.numOfWorkingDays = numOfWorkingDays;
+		this.maxHoursPerMonth = maxHoursPerMonth;
+
+	}
+
+	public void calEmpWages() {
 
 		int empHrs = 0;
 		int totalWorkingDays = 0;
@@ -30,14 +44,17 @@ public class EmpWageBuilderOOPs {
 			System.out.println("Day#: " + totalWorkingDays + " Emp Hr: " + empHrs);
 
 		}
-		int totalEmpWage = totalEmpHrs + empRatePerHour;
-		System.out.println("Total Emp Wages for Company: " + compName + " is: " + totalEmpWage);
-		return totalEmpWage;
+		totalEmpWage = totalEmpHrs + empRatePerHour;
+		System.out.println("Total Emp Wages for Company: " + comp + " is: " + totalEmpWage);
 
 	}
 
 	public static void main(String[] args) {
-		calEmpWages("Capgemini", 25, 6, 10);
-		calEmpWages("Wipro", 17, 7, 5);
+		EmpWageBuilderOOPs cg = new EmpWageBuilderOOPs("Capgemini", 25, 6, 15);
+		EmpWageBuilderOOPs wipro = new EmpWageBuilderOOPs("Wipro", 17, 5, 12);
+		cg.calEmpWages();
+		wipro.calEmpWages();
+		System.out.println(cg);
+		System.out.println(wipro);
 	}
 }
