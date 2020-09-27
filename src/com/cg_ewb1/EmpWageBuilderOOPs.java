@@ -23,9 +23,11 @@ public class EmpWageBuilderOOPs implements EmpWageBuilderInterface {
 	}
 
 	public void computeEmpWage() {
-		CompanyEmpWage companyEmpWage = companyEmpWageList.get(0);
-		companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
-		System.out.println(companyEmpWage);
+		for (CompanyEmpWage cew : companyEmpWageList) {
+			cew.setTotalEmpWage(this.computeEmpWage(cew));
+			System.out.println(cew);
+			cew.computeDailyWages();
+		}
 	}
 
 	public int computeEmpWage(CompanyEmpWage companyEmpWage) {
@@ -46,6 +48,7 @@ public class EmpWageBuilderOOPs implements EmpWageBuilderInterface {
 			default:
 				empHours = 0;
 			}
+			companyEmpWage.dailyWages.add(empHours * companyEmpWage.empRatePerHour);
 
 			totalEmpHours += empHours;
 			System.out.println("Day: " + totalWorkingDays + " Emp Hr:  " + empHours);
