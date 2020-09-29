@@ -103,6 +103,7 @@ public class EmpWageBuilderOOPs implements EmpWageBuilderInterface {
 				continuation=false;
 			}
 		}
+		sc.close();
 	}
 
 }
